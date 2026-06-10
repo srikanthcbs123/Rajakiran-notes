@@ -1,0 +1,46 @@
+React Hooks
+
+Context API in React
+  Context API in React is used to share data across the components without passing the props manually through every level. 
+  It allows to create global state of data providing global access to all the components.
+  Context API is used to pass global variables anywhere in the code without the prop drilling. 
+  It helps when there is a need for sharing state between a lot of nested components. 
+  It is light in weight and easier to use, 
+  to create a context just need to call  ---> React.createContext(). 
+  No need to install other dependencies or third-party libraries like redux for state management.
+
+  To work with Context API we need React.createContext. It has two properties Provider and Consumer. 
+  ** Provider -- acts as a parent it passes the state to its children
+  ** Consumer -- Access the context value in child components using the ***useContext*** hook
+  
+  // Context.js
+	import React from 'react';
+
+	const UserContext =React.createContext();
+
+	export const Provider = UserContext.Provider;
+	export const Consumer = UserContext.Consumer;
+
+
+Infinte Data onSrcoll
+1.pagination 
+2.Infinite scroll 
+
+Optimize
+UseMemo()
+USecallback()
+lazyloading components
+ use react.lazy() and suspense
+ nextjs -> Dynamic()
+ const ComponentA = dynamic(() => import('../components/A'))
+ const ComponentB = dynamic(() => import('../components/B'))
+ const ComponentC = dynamic(() => import('../components/C'), { ssr: false })
+ 
+App security
+
+
+Authentication
+
+
+Next js 12 or 14
+

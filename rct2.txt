@@ -1,0 +1,216 @@
+Routing, LISTS 
+
+Routing
+	React Router is a standard library for creating dynamic routes and navigation in React JS Applications. 
+	It allows you to manage navigation in your app by defining routes that connect the URL paths to specific components.
+
+	With React Router, you can implement different views for different parts of your application without the need for a full-page refresh. 
+	This is a key feature of single-page applications (SPAs), where only the necessary content is updated as the user navigates.
+	The current latest verstion is React router dom v6.
+	
+	1.BrowserRouter -- Uses the HTML5 history API to keep your UI in sync with the URL.
+						<BrowserRouter>
+							(/* Your routes go here */}
+						</BrowserRouter>
+	2.HashRouter ----- Uses the hash portion of the URL (i.e., window.location.hash) to keep your UI in sync with the URL.
+	
+	** Routes and Route
+		Routes: A container for all your route definitions.
+		Route: Defines a single route with a path and the component to render.
+		import { Routes, Route, Navigate } from "react-router-dom";
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/about" element={<About />} />
+		</Routes>
+	
+	
+	** Link and NavLink
+		Link: Creates navigational links in your application.
+		NavLink: Similar to Link but provides additional styling attributes when the link is active.
+		<nav>
+			<Link to="/about">About</Link>
+			<NavLink to="/" activeClassName="active">Home</NavLink>
+		</nav>
+		
+	** Nested Routing
+		React Navigation supports nested routing, allowing you to structure your application in a hierarchical manner. 
+		This is particularly useful for complex layouts where components are nested within each other.	
+		// Configure nested routes  
+		<Route path="/dashboard" component={Dashboard}>
+			<Route path="/dashboard/profile" component={Profile} />
+			<Route path="/dashboard/settings" component={Settings} />
+		</Route>
+	
+	** Switch: The switch component is used to render only the first route that matches the location rather than rendering all matching routes.
+		
+	** We can use the useParams() hooks to read the URL parameters in a component. 
+		Let's see how to retrieve the URL argument from the earlier illustration.
+		// Configure routes with parameters
+		<Route path="/user/:id" component={UserProfile} />
+
+		// Access URL parameter in a component
+			const UserProfile = ({ params }) => {
+		    const userId = params.id;
+		  // ... rest of the component logic
+		
+		Let's see how to retrieve the URL argument from the earlier illustration.
+		
+		import { Routes, Route, useParams } from "react-router-dom";
+
+		function App() {
+		return (
+		  <Routes>
+			<Route path="user/:userId" element={<User/>} />
+		  </Routes>
+		);
+		}
+		
+		function User() {
+			let params = useParams();
+			return <h1>User: {params.userId}</h1>;
+		}
+	** The <Outlet> renders the current route selected.
+	import { Outlet, Link } from "react-router-dom";
+
+		const Layout = () => {
+		  return (
+			<>
+			  <nav>
+				<ul>
+				  <li><Link to="/">Home</Link></li>
+				  <li><Link to="/blogs">Blogs</Link></li>
+				  <li><Link to="/contact">Contact</Link></li>
+				</ul>
+			  </nav>
+			  <Outlet />
+			</>
+		  )
+		};
+
+		export default Layout;
+	
+LAZY Loading	
+        Lazy loading in React is a design pattern that delays the loading of resources or components until they are needed. 
+		Lazy loading in React allows us to load components just when they are going to be rendered on the screen, rather than when the app first loads. 
+		This reduces the amount of data that the browser must download initially, resulting in speedier load times.
+
+		React.lazy(): This function is used to dynamically import the component (LazyComponent), which will only be imported as needed.
+		Suspense: The Suspense component covers the lazily loaded component and displays a fallback UI (such as "Loading...") while it is loading.	
+		
+		import React, { Suspense } from 'react';
+
+			const ComponentOne =
+				 React.lazy(() => import('./ComponentOne'));
+			const ComponentTwo =
+				 React.lazy(() => import('./ComponentTwo'));
+			function MyComponent() {
+				  return (
+					<div>
+						<Suspense fallback={<div>Loading...</div>}>
+					</div>);
+			}
+			
+		Benefits of Lazy Loading:
+		-Faster initial load times: By only loading essential components upfront, the initial bundle size is reduced, leading to quicker page loads.
+		-Improved user experience: Users can interact with the visible parts of the application sooner, without waiting for the entire application to load.
+		-Reduced resource consumption: Less data is downloaded and parsed initially, optimizing resource usage.
+
+Route Gaurd
+	In React JS, a route guard is a mechanism used to control access to specific routes within an application based on certain conditions. 
+	This is commonly used for implementing features like authentication checks, authorization based on user roles, or preventing users from navigating away from a page with unsaved changes.
+	
+	
+	***ProtectedRoute*** component conditionally renders the children (the protected component) or a Navigate component based on the isAuthenticated prop or other guard conditions.
+	
+	import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+		// ... import other components
+
+    function App() {
+      const isAuthenticated = /* Your authentication logic here */;
+
+      return (
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </Router>
+      );
+    }
+	Guard Functions: separate "guard functions" can be created that return a boolean indicating whether access is allowed. 
+							  These functions can incorporate various checks, such as user roles, permissions, or form state.
+	
+	Common Use Cases:
+	Authentication: Ensuring only logged-in users can access certain parts of the application.
+	Authorization: Restricting access based on user roles (e.g., only administrators can access admin panels).
+	Preventing Unsaved Changes: Prompting users to confirm before leaving a page with unsaved form data.
+
+
+Authentication: https://dev.to/miracool/how-to-manage-user-authentication-with-react-js-3ic5
+				https://dev.to/sanjayttg/jwt-authentication-in-react-with-react-router-1d03
+			    https://clerk.com/blog/adding-jwt-authentication-to-react
+---------------------------------------------------------------------------------------------------------------------------
+
+
+LISTS
+    React Lists are used to display a collection of similar data items like an array of objects. 
+	It allows us to dynamically render the array elements and display repetitive data.
+	
+	---Example--- 
+	function App() {
+    const items = ['Apple', 'Banana', 'Cherry'];
+
+    return (
+        <div>
+            <h1>My Fruit List</h1>
+            <ul>
+                {items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        </div>
+		);
+	}
+
+    export default App;
+	
+	---Example--- 
+	
+	const users = [
+    { id: 1, name: 'Geeks', age: 30 },
+    { id: 2, name: 'for', age: 25 },
+    { id: 3, name: 'Geeks', age: 20 },
+	];
+	const App = () => {
+		return (
+			<ul>
+				{users.map((user) => (
+					<li key={user.id}>
+						{user.name} is {user.age} years old.
+					</li>
+				))}
+			</ul>
+		);
+	}
+
+	export default App;
+	
+	The .map() function loops over the items array.
+	Each item is rendered inside an <li> tag.
+	The **key prop should be added to uniquely identify each list item.
+	
+	The key prop is essential in React when rendering lists because it helps to identify which items have changed, been added, or removed. 
+	This allows React to efficiently update and re-render only the changed items in the DOM, rather than re-rendering the entire list.
+	**Index as Key: Don’t use array index as key in dynamic lists. Use stable identifiers.
+	
+	
+	
+	

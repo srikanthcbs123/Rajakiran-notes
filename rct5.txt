@@ -1,0 +1,69 @@
+State Management
+useState()
+react nextJS 
+Context API - use for storing theme related data and configuartion, user related data whic can be sent to API's.
+
+react  TanStack Query
+react jotai (pub, sub) publish and subscribe 
+
+
+React API calling fetch data 
+   
+  Using JavaScript fetch() method
+  Using axios library 
+  Fetching data from an API is a critical task in modern web applications, and both fetch() and axios are widely used methods for achieving this in React. 
+  Use fetch() if you prefer a native, lightweight solution for making HTTP requests in your React apps. Use Axios for more features like automatic JSON parsing, 
+  improved error handling, and a cleaner syntax for HTTP requests.
+
+  https://www.geeksforgeeks.org/reactjs/how-to-fetch-data-from-an-api-in-reactjs/
+  https://www.newline.co/@RichardBray/react-fetching-data-from-an-api--0c5baf4f
+
+
+
+
+React Fiber
+ 
+
+What is reconciliation in React?
+
+controlled and uncontrolled components
+	In React, the terms "controlled components" and "uncontrolled components" primarily refer to how form input elements (like <input>, <textarea>, and <select>) 
+	manage their state and values.
+	
+	--> In a "controlled component", the value of the form input is controlled by React state. 
+		the input's value is stored in a component's state (or a useState hook in functional components) and updated whenever the input changes.
+	
+		Data Flow: The input elements' values are set by the state, and any changes are reflected through state updates.
+		Real-Time Validation: Enables immediate validation and formatting of user input.
+		Single Source of Truth: The state serves as the single source of truth for the form data.
+		
+	-->In an "uncontrolled component", the form input element manages its own state internally, similar to how traditional HTML form elements behave. 
+	   React does not directly control the input's value through state. Here the form data is handled by the DOM.
+	   Access to form values is achieved using useRef() or createRef() to reference DOM elements directly.
+	   Data flows from the input to React only when accessed via refs.
+	   Manual Validation: Validation and formatting need to be handled manually, often during form submission.
+	
+
+Higher Order Components 
+	Higher-Order Components (HOCs) enables to reuse complex logic across different components. 
+	One way of being able to reuse the same logic in multiple components, is by using the higher order component pattern. 
+	This pattern allows us to reuse component logic throughout our application.
+	
+	const EnhancedComponent = higherOrderComponent(OriginalComponent);
+	
+	higherOrderComponent is a function that takes an existing component (OriginalComponent) as an argument.
+	It returns a new component (EnhancedComponent) with additional functionality or behavior.
+	The EnhancedComponent behaves like the original component but with enhanced features provided by the HOC.
+
+
+
+		
+react code splitting
+
+
+How do you handle asynchronous data loading in React?
+https://www.digitalocean.com/community/tutorials/how-to-handle-async-data-loading-lazy-loading-and-code-splitting-with-react
+
+
+
+

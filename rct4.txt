@@ -1,0 +1,88 @@
+Hooks
+
+		React hooks are functions that allow us to use state and other React features in functional components.
+		that function satrt with 'use' keyword
+		Hooks needs to call on the top of the components. 
+		hooks should not called in conditionals like if, else, switch 
+		-> reusability of code, maintainability
+		
+		React Hooks are functions that allow functional components in React to manage state, handle side effects, 
+		and access other React features without needing class components. 
+		They provide a simpler and more efficient way to manage component logic.
+
+1. State Hooks
+
+	useState:   The useState hook is a function that allows us to add and manage state to a functional component. 
+				It allows components to maintain and update data that can change over time, triggering re-renders when necessary.
+				*syantax --> const [state, setState] = useState(initialState)
+				Ex:  		 const [value, setValue] = useState(10);
+				state --> It is the value of the current state.
+				setState --> It is the function that is used to update the state.
+				initialState --> It is the initial value of the state.
+				
+				We should use the useState Hook when:
+				We need a simple state management solution.
+				We component has state that changes over time.
+				The state does not require complex updates or dependencies.
+				
+2.  useEffect:  the useEffect Hook in React facilitates the management of side effects within functional components. 
+				These side effects might include data fetching, direct DOM manipulation, or setting up subscriptions.
+				-> Fetching data from an API.
+				-> Setting up event listeners or subscriptions.
+				-> Manipulating the DOM directly (although React generally handles DOM manipulation for you).
+				-> Cleaning up resources when a component unmounts.
+				
+				useEffect accepts two arguments. The second argument is optional.
+				The useEffect Hook accepts two arguments: a callback function containing the side effect logic and an optional dependency array.
+				useEffect(<function>, <dependency array>)
+				
+3.  useRef:		
+				Syntax --> const refContainer = useRef(initialValue);
+				useRef returns an object { current: initialValue }.
+				The .current property can be updated without re-rendering the component.
+				
+				Accessing and manipulating DOM elements without triggering re-renders.
+				It can hold values that need to be preserved between renders without causing the component to re-render.
+				
+4.  useMemo    The useMemo hook is a built-in React hook that allows to memoize the result of a computation. 
+			   It takes two arguments: a function that performs the computation and an array of dependencies. 
+			   The hook returns the memoized value, which is the result of the computation. 
+			   *useMemo Hook returns a memoized value.
+			   *The useMemo Hook only runs when one of its dependencies update.
+			   
+			   During the initial render, useMemo executes the function and caches the result. On subsequent renders, useMemo checks if any of the dependencies have changed. 
+			   If they have, it re-executes the function and updates the cached result. If the dependencies haven't changed, 
+			   it returns the cached result, skipping the computation.
+			   This optimization is useful for expensive computations that don't need to be re-executed unless their inputs change. 
+			   By memoizing the result, useMemo can improve performance by avoiding unnecessary work.
+			   
+			   You should use useMemo when
+				--> You have expensive calculations that do not need to be re-executed unless certain dependencies change.
+				--> You are dealing with large data sets and need to optimize performance.
+				--> You want to prevent unnecessary re-renders of child components by ensuring stable references.
+				
+			The useMemo and ***useCallback*** Hooks are similar. 
+			The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
+			** One reason to use useCallback is to prevent a component from re-rendering unless its props have changed.
+			
+5.  useCallback 
+			
+6. useContext
+			The useContext hook in React allows components to consume values from the React context. 
+			React’s context API is primarily designed to pass data down the component tree without manually passing props at every level.
+			
+			-Simplifies accessing shared state across components.
+			-Avoids prop drilling by eliminating the need to pass props down multiple levels.
+			-Works seamlessly with React's Context API to provide global state.
+			-Ideal for managing themes, authentication, or user preferences across the app.
+			-Help in sharing between multiple components without a third-party state management library.
+			
+6. Custom hook: to perform an API call we created a custom hook, which encapusates the logic of calling API, managaging loading state 
+				(like to display a loader and hide the loader) and handling errors to show the errors, (toast msg to display err).
+
+			
+			
+			
+			
+				
+			   

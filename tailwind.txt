@@ -1,0 +1,61 @@
+Tailwind css
+
+T@i1W!ndcss
+B00tStr@p5
+Angu1@r18
+Re@ctJS18
+
+
+First, make sure you've added the viewport meta tag to the <head> of your document:
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+Then to add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the : character:
+<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<img class="w-16 md:w-32 lg:w-48" src="..." />
+
+adding  "!important:" to styles  use ! at the end of the class 
+<div class="bg-teal-500 bg-red-500!">
+  <!-- ... -->
+</div>
+
+
+Break Points
+
+Breakpoint prefix	Minimum width	CSS
+sm	40rem (640px)	@media (width >= 40rem) { ... }
+md	48rem (768px)	@media (width >= 48rem) { ... }
+lg	64rem (1024px)	@media (width >= 64rem) { ... }
+xl	80rem (1280px)	@media (width >= 80rem) { ... }
+2xl	96rem (1536px)	@media (width >= 96rem) { ... }
+
+When you import tailwindcss into your project, Preflight is automatically injected into the base layer:
+columns utility 
+<div class="columns-2 gap-4 sm:columns-3 sm:gap-8 ...">
+  <img class="aspect-3/2 ..." src="/img/mountains-1.jpg" />
+  <img class="aspect-square ..." src="/img/mountains-2.jpg" />
+  <img class="aspect-square ..." src="/img/mountains-3.jpg" />
+  <!-- ... -->
+</div>
+
+FLEX Utilities 
+
+Grid utilies 
+<div class="grid grid-cols-3 gap-4">
+  <div class="...">01</div>
+  <div class="...">02</div>
+  <div class="...">03</div>
+  <div class="col-span-2 ...">04</div>
+  <div class="...">05</div>
+  <div class="...">06</div>
+  <div class="col-span-2 ...">07</div>
+</div>
+
+
+Padding class ->  p-4, p-8 padding all sides  [pt-4, pr-6, pb-2, pl-5 padding top, right, bottom, left]
+Margin- class ->  Use m-<number> utilities like m-4 and m-8 to control the margin on all sides of an element  [mt- mr-  mb- ml-  for margin top, right, bottom, left].
+
+Width class -> Use w-<number> utilities like w-24 and w-64 to set an element to a fixed width
+			   Use utilities like w-sm and w-md, w-lg to set an element to a fixed width based on the container scale
+height class -> Use h-<number> utilities like h-24 and h-64 to set an element to a fixed height based on the spacing scale 
+
+TYPOGRAPHY - Typography  font-family Utilities for controlling the font family of an element.

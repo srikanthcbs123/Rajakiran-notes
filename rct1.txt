@@ -1,0 +1,142 @@
+React JS
+
+Plain react Application  - react, react router, Babel transpiler, webpack bundler, 
+                           css - Import a style file into the component.
+						   scss - Import, scss file in a component. 
+						   react module css
+						   styled components -
+						   tailwind css 
+						   output - dist folder (index.js, index.html chunk files, assets)
+
+React Application with next JS -  npx create-next-app (its will contain webpack file based routing, module css, ssr, create API )
+								
+
+
+
+Virtual DOM
+	React uses a Virtual DOM to optimize UI rendering. Instead of updating the entire real DOM directly, 
+	React: Creates a lightweight copy of the DOM (Virtual DOM). Compares it with the previous version to detect changes (diffing).
+	Diffing Algorithm: React compares the new Virtual DOM tree with the previous one using its efficient diffing algorithm to identify the minimal set of changes required.
+	Updates only the changed parts in the actual DOM (reconciliation), improving performance.
+	Reconciliation is a process in React that helps it update the UI efficiently. 
+	Whenever something changes in our app, like the data or state, React needs to update the web page to reflect those changes.
+JSX
+	JSX is a powerful feature of React that allows you to write HTML-like code within JavaScript. 
+	It simplifies the process of building user interfaces by combining the flexibility of JavaScript with the structure of HTML. 
+	JSX makes it easier to render dynamic content, embed expressions, and manage event handling. 
+	React efficiently converts JSX into JavaScript objects, which are used to update the real DOM.
+	
+	JSX Gets Transformed: JSX is not directly understood by browsers. 
+	So, it gets converted into JavaScript by a tool called Babel. 
+	
+	Babel --> transpiler Babel is a JavaScript transpiler. It converts modern JavaScript (ES6+), JSX syntax used in React, 
+	          and other syntax variations into older versions of JavaScript (ES5) that can be understood by all browsers,
+	webpack -->  Webpack is a module bundler. It takes various files (JavaScript, CSS, images, etc.) 
+				 and their dependencies and bundles them into a single file or a few optimized files, often referred to as "bundles." 
+				 
+	outpot --> .next folder
+
+one-way data binding
+	React employs a one-way data binding approach, where data flows unidirectionally from parent components to child components. 
+	This flow is facilitated through props, which are essentially data passed down from parent to child. 
+	Child components can receive and utilize this data, but they cannot directly modify it. 
+	To alter the data, a child component must communicate the desired change to its parent, typically through a callback function. 
+	The parent component then updates its state, triggering a re-render and propagating the updated data back down to the child component. 
+	
+
+React Components
+
+	A component is a building block that encapsulates a piece of the user interface (UI). 
+	It defines the structure and behavior of the UI, either by managing its own state or by receiving data through props and rendering content accordingly. 
+	Components are reusable and can be composed together to build complex UIs in a modular way.
+
+	Components can be reused across different parts of the application to maintain consistency and reduce code duplication.
+	Components manage how their output is rendered in the DOM based on their state and props.
+	React loads only the necessary components, ensuring optimized performance.
+	Only the specific Component updates instead of the whole page.
+	
+	There are two primary types of React components:  1. Functional Components  2. Class Components
+	
+	1. Functional Components:
+	Functional components are simple JavaScript functions that return React elements. 
+	Functional components accept properties (props) as arguments and return React elements (JSX).
+	With the introduction of React Hooks, functional components can also manage state and lifecycle events.
+	They are plain JavaScript functions, making them easier to read and understand.
+	Stateless by default:
+	Before Hooks, functional components were primarily used for presentational purposes, rendering UI based on props.
+	Hooks for state and lifecycle:
+	With Hooks like useState and useEffect, functional components can manage state and handle side effects, similar to class components.
+	
+	2. Class Components
+	Class components are ES6 classes that extend React.Component. They allow state management and lifecycle methods for complex UI logic.
+
+	Used for stateful components before Hooks.
+	Support lifecycle methods for mounting, updating, and unmounting.
+	The render() method in React class components returns JSX elements describing the UI of the Application
+	
+	// Filename App.js
+	import React from "react";
+
+	class App extends React.Component {
+		render() {
+			return <h1>GeeksForGeeks</h1>;
+		}
+	}
+
+	export default App;
+	
+	3.controlled and uncontrolled components
+	  A controlled component is a component which is managed by its parent component and its value is updated using props 
+	  whereas uncontrolled components maintain their own state and data flow is done inside the component only unlike controlled components which pass data from parent to child.
+	  controlled component -- > Controlled components use React state for form handling, offering better control and updates. (simple forms)
+								Uses React state as the source of truth.
+								Data flows from React state to input.
+								
+	  Uncontrolled components --> Uncontrolled components rely on the DOM for state management (complex forms).
+								  Uses the DOM to maintain internal state.
+								  Data flows from the input to React only when accessed via refs.
+	
+
+
+PROPS
+	Props, short for "properties", are used to pass data from one component to another. 
+	They enable React components to be dynamic and reusable, allowing data to flow down the component tree.
+	
+	props are read-only data passed from one component to another. They are immutable, meaning the child component cannot modify the props it receives. 
+	Only the parent component can alter the data passed through props. React enforces a unidirectional data flow, 
+	meaning that data typically flows from the parent component down to the child. However, 
+	props can also be used to pass callback functions, allowing child components to communicate with the parent and trigger changes in state or behaviour.
+	
+	With the help of Props, we can make components reusable and dynamic by allowing different data to be passed into a component at runtime. 
+	This flexibility helps you to create components that can display dynamic content depending on the props they receive.
+
+
+
+What is ReactJS PropTypes? (used only for jsx for type checking, not required in tsx)
+	PropTypes is a tool in React that helps us check if the data (props) being passed to a component is of the correct type. 
+	The react components receive various types of props and PropTypes help make sure that the right kind of data (like a string, number, or object) is passed to components.
+
+	Type Safety: When the wrong data type is passed in the component, prototypes help find the issues.
+	Better Debugging: During development, they give warning messages in the console, which makes it easier to find the bugs.
+	Improved Documentation: It acts as self-documentation for your components, showing the expected types of props.
+	Prevents Runtime Errors: We can avoid errors caused by unexpected data types during the execution of the application, by enforcing prop types.	
+	PropTypes.string, PropTypes.number, PropTypes.bool,  PropTypes.array, PropTypes.object
+
+
+What is Prop Drilling and How to Avoid it?
+	Prop drilling refers to the practice of passing data through several layers of nested components in React, 
+	even though intermediate components don't directly utilize this data. 
+	This means that a middle component doesn't necessarily need the data, but it must still pass it down to the next component, 
+	creating an unnecessary and sometimes lengthy chain of props.
+	
+	Prop drilling can complicate the React applications, making them harder to maintain and scale. By using modern approaches like React’s 
+	1. Context API, 2. state management , 3. custom hooks, 
+	we can simplify data sharing across components. Adopting these strategies helps we build cleaner, more efficient, and maintainable React apps.
+	
+
+
+
+	
+	
+	
+	
