@@ -1,0 +1,166 @@
+.NET Developer Interview Questions
+Comprehensive Question Bank — Organized by Topic
+
+
+1. C# Fundamentals
+1.	What is the difference between ref and out in C#?
+2.	What is the difference between abstract class and interface?
+3.	Can we create an object for an abstract class?
+4.	How can we return multiple values (strings, integers) from a method in C#?
+5.	What is the difference between var and dynamic?
+6.	What are Tuples in C#?
+7.	What is the difference between value type and reference type?
+8.	What is an Expression Tree in C#?
+9.	What is IDisposable and when to use it?
+10.	What are anonymous methods in C# ?
+11.	What is the default WebAPI return type?
+12.	What is the difference between stack and heap memory? Will heap memory clear?
+13.	How does memory clear in C#?
+14.	What are the anonymous methods in C#?
+15.	What is record in C#?
+16.	What is the difference between CLS and CTS?
+17.	What is the difference between stack and queue?
+18.	How many constructors can a class have? How many destructors?
+19.	Can we perform similar async/await operations without using async and await?
+20.	Explain: public abstract void class : IVehicle {}
+21.	What is the difference between Single() and SingleOrDefault() in LINQ?
+22.	What is the output of: int[] arr = {1,2,3,4,5}; arr.Select(x => x > 3) vs arr.First(x => x > 3)?
+23.	What is the result of SingleOrDefault or FirstOrDefault for: int[] array = {1,2,,3,4,5,6}?
+
+2. LINQ
+24.	Write a LINQ query for getting the next top 10 records.
+25.	Write a LINQ query to fetch student details grade-wise where count < 10.
+26.	Write a LINQ query for a left join.
+27.	How to perform a left join in LINQ?
+
+3. SQL & Database
+28.	What is the difference between RANK() and DENSE_RANK()?
+29.	What is the difference between primary key and unique key?
+30.	What are the disadvantages of indexes?
+31.	Write a query: Get the first name of top 10 records from EMPLOYEE table without passing input.
+32.	Write a query: Get first name, last name, middle name of top 10 records without passing input (EMPLOYEE table).
+33.	What are performance tuning techniques in SQL?
+34.	Write a query to get the 5th highest salary from employee table without using TOP, LIMIT or OFFSET.
+35.	Find the name of employee with the second max salary (table: id, name, age, salary).
+36.	Delete duplicate records (based on name) except one.
+37.	Delete duplicate records without using GROUP BY and HAVING.
+38.	What is the difference between CTE and temporary table?
+39.	What is the difference between global and local temp tables?
+40.	What is an anti-join in SQL?
+41.	What are the troubleshooting techniques in SQL?
+42.	How will you restrict SQL injection?
+43.	Have you faced any deadlocks in SQL? How did you handle them?
+44.	How to pass table data to/from a stored procedure as a parameter? When to use TABLE type?
+45.	What is the difference between stored procedure and function?
+46.	What is the difference between DELETE and TRUNCATE? Why is TRUNCATE faster?
+47.	Is a temp table cleared once a procedure execution starts?
+48.	Batch data is inserting from one table to another — how to handle it?
+49.	EMPLOYEE table has 100,000 records (ID, name, date) — how do you get the data efficiently?
+50.	What is the difference between temp tables and normal tables?
+51.	If we put a primary key on a date column, will it give the expected results?
+52.	How do you maintain transactions in Entity Framework?
+53.	What is the difference between TransactionScope and SQL transactions?
+54.	List all roles along with the number of users associated with each role (tables: User, Roles, RoleActions).
+55.	How to optimize SQL queries?
+
+4. Entity Framework & ORM
+56.	What ORM do you use? Write a small method to get data.
+57.	Explain Entity Framework.
+58.	What is the difference between Code First, Model First, and DB First approaches?
+59.	Explain the N+1 problem in ORM.
+60.	How are you maintaining data integrity when using microservices?
+
+5. .NET Core & Web API
+61.	What is app.Use() and app.Run() in .NET Core?
+62.	What is caching in .NET Core?
+63.	What is a Request Delegate in .NET Core?
+64.	What is the default Request Delegate?
+65.	What is Minimal API in .NET Core and how is it different from traditional APIs?
+66.	What are the differences between Exception Filter and Exception Middleware?
+67.	How will you ensure your web application is secure?
+68.	How will you restrict SQL injection from the API side?
+69.	How do you limit API requests to hit the database — e.g., 13 requests per time limit?
+70.	What is attribute-based routing?
+71.	How do custom middleware orders take place (not the built-in ones)?
+72.	What are IHostedService and BackgroundService, and what are their differences?
+73.	What is the difference between middleware and filters?
+74.	How to upload a 2 GB file in C#?
+75.	Implement file upload in C# — if file processing succeeds, move to archive folder (process asynchronously).
+76.	What is logging functionality in .NET Core?
+77.	How do you handle 100,000 records on the API side?
+78.	How will you do API health checks?
+79.	I have one interface with IDepartment containing GetSalary() — if I use 10 classes implementing it, and want those 10 classes somewhere, what approach should I follow?
+80.	Custom middlewares — how to write and register them.
+
+6. Authentication, Authorization & Security
+81.	What is the difference between Authentication and Authorization?
+82.	How does JWT work and how are roles identified in JWT?
+83.	If we generate a JWT token and log in from two systems with same credentials, will a new token be generated?
+84.	How will you validate a token from the Angular side?
+85.	If any third-party domain tries to access your website, how will you restrict it using JWT?
+86.	What type of authentication algorithm will you use in JWT, and in which scenario?
+87.	Create a custom authorization filter to check if user role exists in the HTTP request; if not, return 403 error (C#).
+88.	How do you maintain authentication based on role-based access control?
+89.	How do you handle role-based authentication from the Angular side?
+
+7. CORS
+90.	What is CORS? How do we register it?
+91.	How will you accept custom headers when a request comes from a browser to Web API?
+92.	How will you restrict domains for CORS? How to specify particular domains?
+93.	For allowing multiple CORS origins, what do you do?
+94.	CORS Enable — explain the process.
+95.	How to generate CORS settings in .NET Core?
+
+8. Design Patterns & Principles
+96.	Explain the SOLID principles.
+97.	What is the Liskov Substitution Principle (LSP)? Write a code example.
+98.	How do you implement LSP in your project?
+99.	What is the Factory Pattern? Explain with an example.
+100.	What is the Repository Design Pattern and how does the repository interact with data?
+101.	Explain the difference between monolithic and microservices architectures.
+102.	What is Onion Architecture?
+103.	What are REST principles?
+104.	What is the difference between REST and RESTful?
+105.	What is Dependency Injection? Explain.
+106.	Class A, Class B, Class C — you want operations from A to C without touching Class A. How?
+
+9. Microservices & Communication
+107.	How do you connect two services? Which communication protocol do you use?
+108.	What are the steps to communicate between two services?
+109.	What is an API Gateway?
+110.	What is a reverse proxy?
+111.	What are the security tools you use in a CI/CD pipeline integration?
+112.	If you are using microservices, how do you maintain data integrity?
+113.	If you want to create a payment gateway API, how will downstream APIs be handled?
+
+10. Angular
+114.	How will you restrict access to components from other components?
+115.	How can we upgrade from a lower Angular version to a higher version?
+116.	How do you configure lazy loading in Angular?
+117.	We have 4 components — in the 2nd component there is a button; when clicked, the 4th component should load lazily. How?
+118.	If an API is failing, how do you handle it from the Angular side?
+119.	What is Change Detection in Angular? What are the Change Detection options?
+120.	What are Route Guards in Angular?
+121.	What is an Interceptor in Angular?
+122.	How do you share data between two components in Angular?
+123.	What is debouncing in Angular?
+124.	What is switchMap in Angular/RxJS?
+125.	How do you handle pagination in Angular?
+126.	What are HTML templates in Angular?
+127.	What are Deferred Views in Angular?
+128.	What is SSR (Server Side Rendering) in Angular?
+129.	What is the difference between constructor and ngOnInit()?
+130.	What is error handling in Angular?
+131.	I have one text box and a button — when clicked, data should go to 4 components at the same time. How?
+132.	I have 100 APIs — timezone needs to be updated from different places. How do you update from the Angular side?
+133.	Role-based authentication from the Angular side — how do you implement it?
+134.	Angular optimization techniques.
+
+11. Coding / Algorithm Questions
+135.	Array: [-3, -2, 1, 4, 5, 6] — Find the square of each number and sort in ascending order. Output: [1, 4, 9, 16, 25, 36]
+136.	String: 'MADAM' — find the first unique letter.
+137.	Write a LINQ query for a left join.
+138.	Write a query to get the 5th highest salary without TOP, LIMIT, or OFFSET.
+139.	Write a custom authorization filter in C# to check user role in HTTP request, return 403 if not found.
+140.	Implement file upload in C# — on success, move to archive folder, processed asynchronously.
+
